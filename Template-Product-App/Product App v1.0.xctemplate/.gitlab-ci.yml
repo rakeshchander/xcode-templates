@@ -1,0 +1,44 @@
+stages:
+  - build
+  - test
+  - sonar
+
+build_core_all:
+  stage: build
+  script:
+    - rm -rf Pods
+    - rm -rf Podfile.lock
+    - pod deintegrate
+    - pod repo-art update comviva-cocoapods
+    - pod install
+    - xcodebuild -workspace ___PROJECTNAME___.xcworkspace -scheme DEV clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED=NO -UseModernBuildSystem=NO -destination generic/platform=iOS
+  except:
+    - tags/*
+
+test_unit:
+   stage: test
+   script: 
+     - rm -rf Pods
+     - rm -rf Podfile.lock
+     - pod deintegrate
+     - pod repo-art update comviva-cocoapods
+     - pod install
+     - xcodebuild -workspace ___PROJECTNAME___.xcworkspace -scheme DEV clean test  -UseModernBuildSystem=NO -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.1'  -enableCodeCoverage YES
+   except:
+     - master
+     - develop
+
+test_sonar:
+   stage: sonar
+   script:
+     - rm -rf Pods
+     - rm -rf Podfile.lock
+     - pod deintegrate
+     - pod repo-art update comviva-cocoapods
+     - pod install
+     - xcodebuild -workspace ___PROJECTNAME___.xcworkspace -scheme Sonar clean test  -UseModernBuildSystem=NO -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.1'  -enableCodeCoverage YES  -derivedDataPath Build/
+     - bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ > sonarqube-generic-coverage.xml
+     - bash $HOME/Documents/Sonar/sonar*/bin/sonar-scanner
+   only:
+     - develop
+
