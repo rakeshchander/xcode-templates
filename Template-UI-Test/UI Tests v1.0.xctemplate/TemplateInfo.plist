@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>com.comviva.mfs.cocoaTouchUITestingBundle</string>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.iosUITestBundleBase</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>This target builds a user interface testing bundle that uses the XCTest framework.</string>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>TargetIdentifier</key>
+			<string>com.apple.dt.cocoaTouchUITestBundleTarget</string>
+		</dict>
+	</array>
+	<key>OptionConstraints</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>ConstraintType</key>
+			<string>DefaultIfAssociatedTarget</string>
+			<key>Value</key>
+			<string>___ASSOCIATEDTARGET_bundleName___UITests</string>
+		</dict>
+	</array>
+	<key>Nodes</key>
+	<array>
+		<string>BaseUITest/BaseUITest.swift</string>
+		<string>TestPlan/LocalizationPlan_UI.xctestplan</string>
+	</array>
+	<key>Definitions</key>
+	<dict>
+		<key>BaseUITest/BaseUITest.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>BaseUITest</string>
+			</array>
+			<key>Path</key>
+			<string>BaseUITest/BaseUITest.swift</string>
+		</dict>
+		<key>TestPlan/LocalizationPlan_UI.xctestplan</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>TestPlan</string>
+			</array>
+			<key>Path</key>
+			<string>TestPlan/LocalizationPlan_UI.xctestplan</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

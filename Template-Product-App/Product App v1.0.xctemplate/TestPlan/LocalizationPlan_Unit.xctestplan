@@ -1,0 +1,49 @@
+{
+  "configurations" : [
+    {
+      "id" : "653BE76B-0AE3-4D89-8D4A-3212FF8243F4",
+      "name" : "English",
+      "options" : {
+        "commandLineArgumentEntries" : [
+          {
+            "argument" : "en"
+          }
+        ],
+        "language" : "en"
+      }
+    },
+    {
+      "id" : "7992A890-FD6B-4F39-8A65-5ADE6885085F",
+      "name" : "Arabic",
+      "options" : {
+        "commandLineArgumentEntries" : [
+          {
+            "argument" : "ar"
+          }
+        ],
+        "language" : "ar"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:___PROJECTNAME___.xcodeproj",
+          "identifier" : "D3AE501522BB7BEB006A5044",
+          "name" : "___PROJECTNAME___"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:___PROJECTNAME___.xcodeproj",
+        "identifier" : "D3AE501E22BB7BEB006A5044",
+        "name" : "___PROJECTNAME___Tests"
+      }
+    }
+  ],
+  "version" : 1
+}
